@@ -4,6 +4,7 @@
   <title>TurfSurf</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.materialdesignicons.com/1.4.57/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -30,10 +31,23 @@
     </div>
   </div>
   <div class="footer-copyright">
-    <div class="container">
-    Turf Surf 2016
-    <span class="right">Made with <i class="material-icons">code</i> in Miami</span>
-    </div>
+  	<div class="container">
+    	<div class="row">
+    		<div class="col s4">
+			    Turf Surf 2016
+			</div>
+
+			<div class="col s4 center-align">
+					<i class="mdi mdi-facebook"></i>
+					<i class="mdi mdi-twitter"></i>
+					<i class="mdi mdi-instagram"></i>
+			</div>
+
+			<div class="col s4 right-align">
+				Made with <i class="material-icons">code</i> in Miami
+			</div>
+		</div>
+	</div>
   </div>
 </footer>
 
