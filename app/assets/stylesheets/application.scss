@@ -16,3 +16,26 @@
 
  @import "materialize";
  @import 'animate';
+
+ body {
+ 	font-family: Monserrat, "Helvetica Neue", Helvetica;
+ }
+
+ .header {
+	background: url(//wallpapercave.com/wp/dN69yCy.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+ nav {
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    box-shadow: none;
+    z-index: 999;
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition: background .5s ease-in-out, opacity .5s ease;
+    padding: 10px 30px;;
+ }
+
+ .bottom-div {
+ 	padding: 0 20px;
+ }

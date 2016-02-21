@@ -1,0 +1,112 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#how-it-works {
+	background-color: #ededed;
+	color: #5c5c5c;
+	padding: 20px 0;
+	margin-bottom: -20px;
+}
+
+.tabs {
+	position: relative;
+	height: 48px;
+	margin: 0 auto;
+	white-space: nowrap;
+}
+
+.tabs .tab {
+	display: block;
+	float: left;
+	text-align: center;
+	line-height: 48px;
+	margin: 0;
+	letter-spacing: .8px;
+	padding: 0;
+}
+
+#how-it-works .tabs {
+	background-color: transparent;
+	margin-bottom: 50px;
+}
+
+#how-it-works .tabs .active {
+	color: #1db5ab;
+}
+
+#how-it-works .tabs a {
+	color: #999;
+	font-weight: bold
+}
+
+#how-it-works .tabs .indicator {
+	background-color: #1db5ab;
+	height: 5px;
+}
+
+.tabs .indicator {
+	position: absolute;
+	bottom: 0;
+	will-change: left, right;
+}
+
+#how-it-works img {
+	width: 125px;
+}
+
+.circle {
+	border-radius: 50%;
+}
+
+#how-it-works h4 {
+	font-size: 1.5em;
+	font-weight: 300;
+}
+
+#how-it-works p {
+	padding: 0 50px;
+}
+
+.intro-text {
+	padding-top: 200px;
+	padding-bottom: 150px;
+	text-align: center;
+	color: #fff;
+}
+
+.intro-title {
+	font-family: "Droid Serif", "Helvetica Neue", Helvetica;
+	font-style: italic;
+	font-size: 40px;
+	line-height: 40px;
+	margin-bottom: 25px;
+}
+
+.coming-soon {
+	font-family: Monserrat, "Helvetica Neue", Helvetica;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 75px;
+	line-height: 75px;
+	margin-bottom: 50px;
+}
+
+.info-btn {
+	font-family: Monserrat, "Helvetica Neue", Helvetica;
+	text-transform: uppercase;
+	font-weight: 700;
+	border-radius: 3px;
+	font-size: 18px;
+	padding: 20px 40px;
+}
+
+.nav-wrapper li a {
+	font-family: Monserrat, "Helvetica Neue", Helvetica;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.brand-logo {
+	font-family: "Kaushan Script", "Helvetica Neue", Helvetica;
+	font-weight: 600;
+}
