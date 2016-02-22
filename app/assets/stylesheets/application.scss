@@ -27,11 +27,15 @@
 }
 
  nav {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.25);
     border: 0;
     box-shadow: none;
     z-index: 999;
     -webkit-font-smoothing: antialiased;
     -webkit-transition: background .5s ease-in-out, opacity .5s ease;
-    padding: 10px 30px;;
+    padding: 0 30px;;
+ }
+
+ i.tiny {
+ 	font-size: 1.3rem;
  }

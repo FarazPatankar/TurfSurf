@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 gem "animate-rails"
 
 gem 'materialize-sass'
