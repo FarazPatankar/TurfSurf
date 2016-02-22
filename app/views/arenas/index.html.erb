@@ -1,0 +1,41 @@
+<%= render "devise/shared/nav" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+      <h4 class="center-align">Pick An Arena</h4>
+
+      <div>
+        <ul class="center-align">
+          <% @arenas.each do |arena| %>
+          <li class="col s4">
+            <div class="card arena-card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator card-img" src="<%= arena.image.url if arena.image %>">
+              </div>
+
+              <div class="card-content">
+                <div class="card-title activator grey-text text-darken-4"><%= arena.name %></div>
+
+                <div class="center-align"><a class="card-btn waves-effect waves-light btn" href="#">Book This Arena</a></div>
+              </div>
+
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><%= arena.name %><i class="material-icons right">close</i></span>
+                <p>Website: <%= arena.website %></p>
+                <hr>
+                <p>Address: <%= arena.address %></p>
+                <p>Contact Number: <%= arena.number %></p>
+                <p>Size: <%= arena.size %></p>
+                <p>Price per hour: <%= arena.price %></p>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

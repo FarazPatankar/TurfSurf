@@ -3,9 +3,15 @@
       <div class="nav-wrapper">
         <a href="/" class="yellow-text brand-logo">Turf Surf</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Create Game</a></li>
+          <li><a href="/arenas">Create Game</a></li>
           <li><a href="#">Join Game</a></li>
-          <li><a href="/users/sign_in">Log In</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+            <li><a href="/users/sign_out" data-method="delete">Log Out</a></li>
+          <% else %>
+            <li><a href="/users/sign_up">Sign Up</a></li>
+            <li><a href="/users/sign_in">Log In</a></li>
+          <% end %>
         </ul>
       </div>
    </nav>

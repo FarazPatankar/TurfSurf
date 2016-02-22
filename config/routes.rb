@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   get "/" => "static_pages#home"
+
+  resources(:users, only:[:show])
+  resources(:arenas, only: [:index])
+
+  # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
