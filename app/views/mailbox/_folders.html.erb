@@ -1,0 +1,23 @@
+<ul class="nav navbar">
+  <li class="<%= active_page(:inbox) %>">
+    <%= link_to mailbox_inbox_path do  %>
+        <span class="right"><%=unread_messages_count%></span>
+        <i class="material-icons">email</i>
+        <span>Inbox</span>
+    <% end %>
+  </li>
+  <li class="<%= active_page(:sent) %>">
+    <%= link_to mailbox_sent_path do %>
+
+        <i class="material-icons"></i>
+        <span>Sent</span>
+    <% end %>
+  </li>
+
+  <li class="<%= active_page(:trash) %>">
+    <%= link_to mailbox_trash_path do %>
+        <i class="material-icons">trash</i>
+        <span>Trash</span>
+    <% end %>
+  </li>
+</ul>

@@ -6,4 +6,13 @@ class User < ActiveRecord::Base
 
          mount_uploader :image, UserImageUploader
 
+  acts_as_messageable
+
+  def mailboxer_name
+  	self.name
+  end
+
+  def mailboxer_email(object)
+  	self.email
+  end
 end
