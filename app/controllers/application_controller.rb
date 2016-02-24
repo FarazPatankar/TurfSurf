@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   protected
   def configure_permitted_parameters
 	  devise_parameter_sanitizer.for(:sign_up).push :first_name, :last_name, :username, :number, :bio, :image
-	  devise_parameter_sanitizer.for(:account_update).push :first_name, :last_name, :username, :number, :bio, :image
+	  devise_parameter_sanitizer.for(:account_update).push :first_name, :last_name, :number, :bio, :image
   end
 end
