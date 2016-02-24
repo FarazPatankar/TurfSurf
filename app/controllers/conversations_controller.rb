@@ -13,6 +13,7 @@ class ConversationsController < ApplicationController
 
   def show
     @receipts = conversation.receipts_for(current_user)
+    @receipts = @receipts.reverse
     # mark conversation as read
     conversation.mark_as_read(current_user)
   end

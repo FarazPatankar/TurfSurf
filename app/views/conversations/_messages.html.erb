@@ -1,19 +1,17 @@
 <% @receipts.each do |receipt| %>
     <% message = receipt.message %>
-    <div class="media">
-      <div class="media-left">
-        <!-- user avators can go here -->
-        <a href="#">
-          <img class="media-object" src="http://placehold.it/64x64" alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">
-          <%= message.sender.username %> <br>
-          <small><b>Subject: </b><%= message.subject %></small><br>
-          <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-        </h4>
-        <%= message.body %>
+    <div class="col s12 mail-sub">
+      <div class="col s9">
+          <span>-Message from
+
+          <% if message.sender == current_user %>
+            <span class="red-text"><%= message.sender.username %></span>
+          <% else %>
+            <span class="blue-text"><%= message.sender.username %></span>
+          <% end %>
+          </span>
+          <span> at <%= message.created_at.strftime("%b %d, %I:%M%p") %>: </span>
+          <span class="blue-grey-text darken-3"><%= message.body %></span>
       </div>
     </div>
 <% end %>

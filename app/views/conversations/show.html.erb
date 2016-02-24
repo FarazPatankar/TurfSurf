@@ -1,44 +1,62 @@
-<div class="row">
-  <div class="divider"></div>
-  <div class="col s6">
-    <%= link_to "Compose", new_conversation_path, class: "btn btn-success" %>
-  </div>
-  <div class="col s6 right-align">
-    <% if conversation.is_trashed?(current_user) %>
-        <%= link_to 'Untrash', untrash_conversation_path(conversation), class: 'waves-effect waves-light btn', method: :post %>
-    <% else %>
-        <%= link_to 'Move to trash', trash_conversation_path(conversation), class: 'waves-effect waves-light btn red', method: :post,
-                    data: {confirm: 'Are you sure?'} %>
-    <% end %>
-  </div>
-</div>
+<%= render "devise/shared/nav" %>
 
 <div class="row">
-  <div class="divider"></div>
-  <div class="col s4">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= render 'mailbox/folders' %>
+  <div class="col s3 inbox-left" style="padding-bottom: 130px;">
+    <ul>
+      <li>
+        <a href="/conversations/new">
+          <i class="material-icons">textsms</i>
+          Compose
+        </a>
+      </li>
+      <li>
+        <a href="/mailbox/inbox">
+          <i class="material-icons">email</i>
+          Inbox
+          <span class="red-text"><%= unread_messages_count %></span>
+        </a>
+      </li>
+      <li>
+        <a href="/mailbox/sent">
+          <i class="material-icons">send</i>
+          Sent
+        </a>
+      </li>
+      <li>
+        <a href="/mailbox/trash">
+          <i class="material-icons">delete</i>
+          Trash
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col s9" style="padding-top: 40px">
+
+    <div class="col s8">
+      <div>
+        <div class="message-list">
+          <%= render partial: 'messages' %>
+        </div>
+
+        <div class="reply-box">
+          <!-- Reply Form -->
+          <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+                <%= f.text_area :body, placeholder: "Reply Message", rows: 4 %>
+                <%= f.submit "Reply", class: 'waves-effect waves-light btn left light-blue lighten-1' %>
+          <% end %>
+          <% if conversation.is_trashed?(current_user) %>
+              <%= link_to 'Untrash', untrash_conversation_path(conversation), class: 'waves-effect waves-light btn right', method: :post %>
+          <% else %>
+              <%= link_to 'Move to trash', trash_conversation_path(conversation), class: 'waves-effect waves-light btn red right', method: :post,
+                          data: {confirm: 'Are you sure?'} %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col s8">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= render partial: 'messages' %>
-      </div>
-      <div class="panel-footer">
-        <!-- Reply Form -->
-        <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
-            <div class="form-group">
-              <%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control" %>
-            </div>
-            <%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
-        <% end %>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
+
+
 
 </div>

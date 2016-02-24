@@ -1,3 +1,16 @@
 // Place all the styles related to the mailbox controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.inbox-left ul {
+	padding-top: 10px;
+}
+
+.inbox-left ul li {
+	margin: 20px;
+	padding-left: 60px;
+}
+
+.inbox-right {
+	padding-top: 10px;
+}

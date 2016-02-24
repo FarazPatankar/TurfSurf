@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'chosen-rails'
+
 gem 'mailboxer'
 
 gem 'carrierwave'

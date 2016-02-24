@@ -1,16 +1,10 @@
-<div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-    </a>
+<div class="col s12 mail-sub">
+  <div class="col s9">
+      <span>Message from <span class="red-text"><%= conversation.originator.username %></span></span>
+      <span> at <%= conversation.messages.last.created_at.strftime("%b %d, %I:%M%p") %></span>
   </div>
-  <div class="media-body">
-    <h4 class="media-heading">
-      <%= conversation.originator.username %> <br>
-      <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
-    <%= truncate conversation.messages.last.body, length: 145 %>
-    <%= link_to "View", conversation_path(conversation)  %>
+
+  <div class="col s2">
+      <%= link_to "View", conversation_path(conversation), :class => "waves-effect waves-light btn" %>
   </div>
 </div>

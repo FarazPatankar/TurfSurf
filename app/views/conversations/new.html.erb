@@ -1,1 +1,39 @@
-<%= render partial: 'mailbox/folder_view', locals: { is_conversation: true } %>
+<%= render "devise/shared/nav" %>
+
+<div class="row">
+	<div class="col s3 inbox-left" style="padding-bottom: 130px;">
+		<ul>
+			<li>
+				<a href="/conversations/new">
+					<i class="material-icons">textsms</i>
+					Compose
+				</a>
+			</li>
+			<li>
+				<a href="/mailbox/inbox">
+					<i class="material-icons">email</i>
+					Inbox
+					<span class="red-text"><%= unread_messages_count %></span>
+				</a>
+			</li>
+			<li>
+				<a href="/mailbox/sent">
+					<i class="material-icons">send</i>
+					Sent
+				</a>
+			</li>
+			<li>
+				<a href="/mailbox/trash">
+					<i class="material-icons">delete</i>
+					Trash
+				</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="col s6">
+		<h4>New Message:</h4>
+		<%= render partial: 'mailbox/folder_view', locals: { is_conversation: true } %>
+	</div>
+</div>
