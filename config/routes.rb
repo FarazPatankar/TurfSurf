@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     resources(:games, only: [:create, :show])
   end
 
+  resources(:games, only: [:show]) do
+    resources(:invites, only: [:create])
+  end
+
   # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

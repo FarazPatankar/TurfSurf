@@ -1,9 +1,33 @@
 <%= render "devise/shared/nav" %>
 
-<div class="container">
+<div class="container game-show-page">
 	<div class="row">
 		<div class="col s12">
 			<h4 class="center-align" style="text-transform: uppercase;">Invite your friends</h4>
+			<h5 class="center-align"><%= @game.start_time %> - <%= @game.end_time %></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12">
+
+			<form action="/games/<%= @game.id %>/invites" method="POST">
+				<% @game.arena.size.times do |player| %>
+					<div class="col s6 field">
+						<label>Name</label>
+						<input type="text" name="invite[][name]" placeholder="Will this work?">
+					</div>
+
+					<div class="col s6 field">
+						<label>Email</label>
+						<input type="text" name="invite[][email]" placeholder="Will this work?">
+					</div>
+				<%end%>
+
+				<button class="waves-effect waves-light btn" type="submit">Submit</button>
+				<input type="hidden" name="authenticity_token"
+				     value="<%= form_authenticity_token %>">
+			</form>
 		</div>
 	</div>
 </div>

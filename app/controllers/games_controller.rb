@@ -14,6 +14,7 @@ class GamesController < ApplicationController
 	def show
 		@arena = Arena.find_by(id: params[:arena_id])
 		@game = @arena.games.find_by(id: params[:id])
+		@invite = @game.invites.new
 	end
 
 	private

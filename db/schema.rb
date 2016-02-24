@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224133900) do
+ActiveRecord::Schema.define(version: 20160224171043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,19 @@ ActiveRecord::Schema.define(version: 20160224133900) do
 
   add_index "games", ["arena_id"], name: "index_games_on_arena_id", using: :btree
   add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
+
+  create_table "invites", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "response",   default: 0
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "invites", ["game_id"], name: "index_invites_on_game_id", using: :btree
+  add_index "invites", ["user_id"], name: "index_invites_on_user_id", using: :btree
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -119,6 +132,8 @@ ActiveRecord::Schema.define(version: 20160224133900) do
 
   add_foreign_key "games", "arenas"
   add_foreign_key "games", "users"
+  add_foreign_key "invites", "games"
+  add_foreign_key "invites", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
