@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources(:users, only:[:show])
-  resources(:arenas, only: [:index])
+
+  resources(:arenas, only: [:index, :show]) do
+    resources(:games, only: [:create, :show])
+  end
 
   # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.

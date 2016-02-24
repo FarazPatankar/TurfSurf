@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.arena-show-page {
+	background: #fafafa;
+	color: lighten(#000, 40%);
+	padding: 25px;
+}
+
 .card-img {
 	height: 200px;
 	width: 250px;
@@ -14,4 +20,24 @@
 .card-btn {
 	margin-top: 25px;
 	margin-bottom: 25px;
+}
+
+.arena-call {
+	text-align: center;
+	border-top: 5px solid #33b5e5;
+	border-bottom: 5px solid #33b5e5;
+	box-shadow: 0 0 3px rgba(#000, .1);
+	background: #fff;
+	margin-bottom: 25px;
+	display: block;
+}
+
+.arena-form {
+	text-align: center;
+	border-top: 5px solid #33b5e5;
+	box-shadow: 0 0 3px rgba(#000, .1);
+	background: #fff;
+	margin: 0 auto;
+	width: 50%;
+
 }
