@@ -12,9 +12,26 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		@arena = Arena.find_by(id: params[:arena_id])
-		@game = @arena.games.find_by(id: params[:id])
-		@invite = @game.invites.new
+		if params[:arena_id] && params[:id]
+			@arena = Arena.find_by(id: params[:arena_id])
+			@game = @arena.games.find_by(id: params[:id])
+			@invite = @game.invites.new
+		else
+			@game = Game.find_by(id: params[:id])
+			@invites = @game.invites
+			@accepted = []
+			@yet = []
+
+			@invites.each do |invite|
+				if invite.response == 1
+					@accepted.push(invite)
+				elsif invite.response == 0
+					@yet.push(invite)
+				end
+			end
+
+			render :play
+		end
 	end
 
 	private

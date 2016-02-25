@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     resources(:invites, only: [:create])
   end
 
+  get "invites/:id/accept" => "invites#accept"
+  get "invites/:id/reject" => "invites#reject"
+
   # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

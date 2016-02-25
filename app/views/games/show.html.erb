@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="col s12">
 
-			<form action="/games/<%= @game.id %>/invites" method="POST">
+			<form action="/games/<%= @game.id %>/invites" method="POST" class="invite-form">
 				<% @game.arena.size.times do |player| %>
 					<div class="col s6 field">
 						<label>Name</label>

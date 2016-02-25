@@ -1,0 +1,30 @@
+<%= render "devise/shared/nav" %>
+
+<div class="container game-show-page">
+	<div class="row">
+		<div class="col s12">
+			<h4 class="center-align" style="text-transform: uppercase;">Invite your friends</h4>
+			<h5 class="center-align"><%= @game.start_time %> - <%= @game.end_time %></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12 invite-form">
+			<ul>
+				<% @accepted.each do |invite| %>
+					<li>
+						Accepted: <%= invite.name %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+
+		<div class="col s12 invite-form">
+				<% @yet.each do |invite| %>
+					<li>
+						Pending: <%= invite.name %>
+					</li>
+				<% end %>
+		</div>
+	</div>
+</div>
