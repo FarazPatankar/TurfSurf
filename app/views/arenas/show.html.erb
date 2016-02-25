@@ -23,13 +23,18 @@
 		<div class="arena-form", style="padding: 25px;">
 			<%= form_for [@arena, @game], url: arena_games_path(@arena) do |f|%>
 				<div class="field">
+					<%= label_tag :date %>
+					<%= date_field_tag :date, nil, :class => "datepicker" %>
+				</div>
+
+				<div class="field">
 					<%= f.label :start_time %>
-					<%= f.datetime_local_field :start_time %>
+					<%= f.time_field :start_time %>
 				</div>
 
 				<div class="field">
 					<%= f.label :end_time %>
-					<%= f.datetime_local_field :end_time %>
+					<%= f.time_field :end_time %>
 				</div>
 
 				<div class="center-align">

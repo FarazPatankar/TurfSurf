@@ -3,28 +3,48 @@
 <div class="container game-show-page">
 	<div class="row">
 		<div class="col s12">
-			<h4 class="center-align" style="text-transform: uppercase;">Invite your friends</h4>
+			<h4 class="center-align" style="text-transform: uppercase;"><%= @game.arena.name %></h4>
 			<h5 class="center-align"><%= @game.start_time %> - <%= @game.end_time %></h5>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col s12 invite-form">
+		<div class="col s12 game-accepted" style="padding-top: 10px; padding-bottom: 10px;">
+			<h6 class="center-align">ACCEPTED</h6>
 			<ul>
 				<% @accepted.each do |invite| %>
 					<li>
-						Accepted: <%= invite.name %>
+						<%= invite.name %>
 					</li>
 				<% end %>
 			</ul>
 		</div>
+	</div>
 
-		<div class="col s12 invite-form">
-				<% @yet.each do |invite| %>
-					<li>
-						Pending: <%= invite.name %>
-					</li>
-				<% end %>
+	<div class="row">
+		<div class="col s8 offset-s2">
+			<div class="col s5 game-pending left" style="padding-top: 10px; padding-bottom: 10px;">
+				<h6 class="center-align">PENDING</h6>
+				<ul>
+					<% @yet.each do |invite| %>
+						<li>
+							<%= invite.name %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+
+			<div class="col s5 game-rejected right" style="padding-top: 10px; padding-bottom: 10px;">
+				<h6 class="center-align">REJECTED</h6>
+				<ul>
+					<% @yet.each do |invite| %>
+						<li>
+							<%= invite.name %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
 		</div>
 	</div>
+
 </div>

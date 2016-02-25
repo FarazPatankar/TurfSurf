@@ -12,5 +12,26 @@
 	border-top: 5px solid #33b5e5;
 	box-shadow: 0 0 3px rgba(#000, .1);
 	background: #fff;
+	padding: 10px;
+}
 
+.game-pending {
+	text-align: center;
+	border-top: 5px solid #33b5e5;
+	box-shadow: 0 0 3px rgba(#000, .1);
+	background: #fff;
+}
+
+.game-accepted {
+	text-align: center;
+	border-top: 5px solid #00c853;
+	box-shadow: 0 0 3px rgba(#000, .1);
+	background: #fff;
+}
+
+.game-rejected {
+	text-align: center;
+	border-top: 5px solid #c62828;
+	box-shadow: 0 0 3px rgba(#000, .1);
+	background: #fff;
 }

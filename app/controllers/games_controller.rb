@@ -2,9 +2,10 @@ class GamesController < ApplicationController
 	def create
 		@arena = Arena.find_by(id: params[:arena_id])
 		@game = @arena.games.new(game_params)
-		@game.user = current_user
 
+		@game.user = current_user
 		if @game.save
+
 			redirect_to arena_game_path(@arena, @game)
 		else
 			redirect_to arena_path(@arena)
@@ -36,6 +37,8 @@ class GamesController < ApplicationController
 
 	private
 	def game_params
+		params[:game][:start_time] = params[:date] + "T" + params[:game][:start_time]
+		params[:game][:end_time] = params[:date] + "T" + params[:game][:end_time]
 		params.require(:game).permit(:start_time, :end_time)
 	end
 end
