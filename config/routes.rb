@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get "games/:game_id/requests/:id" => "requests#please"
   get "games/:game_id/invites/:id" => "invites#invite"
 
+  post "test/twilio" => "twilio#send_text_message"
+
   # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
