@@ -23,12 +23,15 @@ Rails.application.routes.draw do
     resources(:games, only: [:create, :show])
   end
 
-  resources(:games, only: [:show]) do
+  resources(:games, only: [:show, :index]) do
     resources(:invites, only: [:create])
   end
 
   get "invites/:id/accept" => "invites#accept"
   get "invites/:id/reject" => "invites#reject"
+
+  get "games/:game_id/requests/:id" => "requests#please"
+  get "games/:game_id/invites/:id" => "invites#invite"
 
   # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.

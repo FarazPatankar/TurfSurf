@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+
+	def index
+		@games = Game.where("start_time > ?", DateTime.now + 1.hour)
+	end
 	def create
 		@arena = Arena.find_by(id: params[:arena_id])
 		@game = @arena.games.new(game_params)

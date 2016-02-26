@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :games
   has_many :invites
+  has_many :requests
 
   validates :username, :email, presence: true
   # Include default devise modules. Others available are:
