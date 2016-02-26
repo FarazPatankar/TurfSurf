@@ -20,9 +20,11 @@ class InvitesController < ApplicationController
 	def invite
 		@game = Game.find_by(id: params[:game_id])
 		@user = User.find_by(id: params[:id])
+		sender_id = @game.user_id
+		@sender = User.find_by(id: sender_id)
 
 		@invite = @game.invites.new(name: @user.username, email: @user.email)
-		@invite.user = current_user
+		@invite.user = @sender
 		if @invite.save
 			InviteMailer.invite_email(@invite).deliver_now
 		end
