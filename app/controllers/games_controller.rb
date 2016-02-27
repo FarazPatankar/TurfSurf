@@ -26,6 +26,7 @@ class GamesController < ApplicationController
 			@invites = @game.invites
 			@accepted = []
 			@yet = []
+			@rejected =[]
 			@is_current_accepted = false
 
 			@invites.each do |invite|
@@ -37,6 +38,8 @@ class GamesController < ApplicationController
 					@accepted.push(invite)
 				elsif invite.response == 0
 					@yet.push(invite)
+				elsif invite.response == 2
+					@rejected.push(invite)
 				end
 			end
 

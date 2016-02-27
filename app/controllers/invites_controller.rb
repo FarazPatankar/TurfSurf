@@ -11,7 +11,10 @@ class InvitesController < ApplicationController
 				@invite.user = @user
 				if @invite.save
 					InviteMailer.invite_email(@invite).deliver_now
-				end
+					@invite.send_text_message(attribute[:number],
+						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you.\n
+						Details: http://localhost:3000/invites/#{@invite.id}")
+					end
 		end
 
 		redirect_to game_path(@game)
@@ -36,17 +39,26 @@ class InvitesController < ApplicationController
 	def accept
 		invite = Invite.find_by(id: params[:id])
 		game = invite.game
-		invite.response = 1
-		invite.save
+		if invite.response == 0
+			invite.response = 1
+			invite.save
+		end
 
 		redirect_to game_path(game)
 	end
 
 	def reject
 		invite = Invite.find_by(id: params[:id])
-		invite.response = 2
-		invite.save
+		game = invite.game
+		if invite.response == 0
+			invite.response = 2
+			invite.save
+		end
 
 		render :text => "Okay :("
+	end
+
+	def show
+		@invite = Invite.find_by(id: params[:id])
 	end
 end

@@ -1,0 +1,27 @@
+<%= render "devise/shared/nav" %>
+
+<div class="container game-show-page">
+	<div class="row">
+		<div class="col s12">
+			<h4 class="center-align" style="text-transform: uppercase;"><%= @invite.game.arena.name %></h4>
+			<h5 class="center-align"><%= @invite.game.start_time %> - <%= @invite.game.end_time %></h5>
+		</div>
+
+		<div class="col s12">
+			<h6 class="center-align"><%= @invite.game.arena.address %></h6>
+		</div>
+
+		<div class="row">
+			<div class="col s8 offset-s4">
+				<div class="col s3">
+					<button class="waves-light waves-effect btn"><a class="white-text" href="http://localhost:3000/invites/<%= @invite.id %>/accept">YES!</a></button>
+				</div>
+				<div class="col s3">
+					<button class="waves-light waves-effect btn red"><a class="white-text" href="http://localhost:3000/invites/<%= @invite.id %>/reject">NO!</a></button>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
