@@ -11,10 +11,11 @@ class InvitesController < ApplicationController
 				@invite.user = @user
 				if @invite.save
 					InviteMailer.invite_email(@invite).deliver_now
+					if attribute[:number].length > 0
 					@invite.send_text_message(attribute[:number],
-						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you.\n
-						Details: http://localhost:3000/invites/#{@invite.id}")
+						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you. Details: http://localhost:3000/invites/#{@invite.id}")
 					end
+				end
 		end
 
 		redirect_to game_path(@game)
@@ -43,6 +44,7 @@ class InvitesController < ApplicationController
 			invite.response = 1
 			invite.save
 		end
+		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: invite.name})
 
 		redirect_to game_path(game)
 	end

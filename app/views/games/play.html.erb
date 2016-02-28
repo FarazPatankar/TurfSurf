@@ -15,12 +15,17 @@
 			</button>
 		</div>
 		<br>
+	<%elsif !user_signed_in? %>
+		<div class="center-align">
+			<button class="waves-effect waves-light btn"><a class="white-text" href="/users/sign_in">LOG IN TO JOIN THIS GAME</a></button>
+		</div>
 	<% end %>
+	<br>
 
 	<div class="row">
 		<div class="col s12 game-accepted" style="padding-top: 10px; padding-bottom: 10px;">
 			<h6 class="center-align">ACCEPTED</h6>
-			<ul>
+			<ul class="js-accepted">
 				<% @accepted.each do |invite| %>
 					<li>
 						<%= invite.name %>
@@ -36,7 +41,7 @@
 				<h6 class="center-align">PENDING</h6>
 				<ul>
 					<% @yet.each do |invite| %>
-						<li>
+						<li class="js-pending" id="js-pending<%=invite.id%>">
 							<%= invite.name %>
 						</li>
 					<% end %>

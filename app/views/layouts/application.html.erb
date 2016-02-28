@@ -5,6 +5,23 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdn.materialdesignicons.com/1.4.57/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+   <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('6fc3679ef9bf33c75bf8', {
+      encrypted: true
+    });
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+      $('.js-accepted').append(data.message);
+    });
+  </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>

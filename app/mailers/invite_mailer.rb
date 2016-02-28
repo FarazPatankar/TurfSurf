@@ -1,5 +1,5 @@
 class InviteMailer < ApplicationMailer
-  default from: "farazpatankar@gmail.com"
+  default from: "invites@turfsurf.co"
 
   def invite_email(invite)
   	@invite = invite

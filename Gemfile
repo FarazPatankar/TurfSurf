@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pusher'
+
 gem 'twilio-ruby'
 
 gem 'figaro'

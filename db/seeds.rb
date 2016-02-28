@@ -24,4 +24,4 @@ Arena.create(name: "Wynwood Indoor Soccer", address: "2222 NW 5th Ave, Miami, FL
 Arena.create(name: "La Caimanera Soccer", address: "8111 NW 54th St, Miami, FL 33166", number: "(786) 845-0847", website: "http://lacaimanera.us/", size: 12, price: 120, image: open("https://i.ytimg.com/vi/h0v38EORzf0/maxresdefault.jpg"))
 
 #Soccer Town
-Arena.create(name: "Soccer Town", address: "2728 NE 2nd Ave, Miami, FL 33137", number: "(786) 263-9305", website: "http://soccertownmiami.com/", size: 12, price: 100, image: open("http://www.bizbash.com/content/editorial/storyimg/big/e20322sa.jpg"))
+Arena.create(name: "Soccer Town Midtown Miami", address: "2728 NE 2nd Ave, Miami, FL 33137", number: "(786) 263-9305", website: "http://soccertownmiami.com/", size: 12, price: 100, image: open("http://www.bizbash.com/content/editorial/storyimg/big/e20322sa.jpg"))
