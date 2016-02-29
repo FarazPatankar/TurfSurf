@@ -9,6 +9,7 @@
   width: 300px;
   margin: 10px auto;
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.7);
+  height: 500px;
 }
 
 .user-profile .card-header {
@@ -61,4 +62,9 @@
 
 .user-footer {
   margin-left: 20px;
+}
+
+.games-card {
+  height: 400px;
+  overflow: scroll;
 }

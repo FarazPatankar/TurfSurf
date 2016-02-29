@@ -2,14 +2,28 @@
     <% message = receipt.message %>
     <div class="col s12 mail-sub">
       <div class="col s9">
-          <span>-Message from
-
+          <span>
           <% if message.sender == current_user %>
-            <span class="red-text"><%= message.sender.username %></span>
+            <div class="chip">
+              <% if message.sender.image.url %>
+                <img src="<%= message.sender.image.url %>">
+              <% else %>
+                <img src="http://cdn4.sportngin.com/attachments/text_block/1798/9513/soccer-ball_small.jpg">
+              <% end %>
+              <span class="red-text"><%= message.sender.username %></span>
+            </div>
           <% else %>
-            <span class="blue-text"><%= message.sender.username %></span>
+            <div class="chip">
+              <% if message.sender.image.url %>
+                <img src="<%= message.sender.image.url %>">
+              <% else %>
+                <img src="http://cdn4.sportngin.com/attachments/text_block/1798/9513/soccer-ball_small.jpg">
+              <% end %>
+              <span class="blue-text"><%= message.sender.username %></span>
+            </div>
           <% end %>
           </span>
+
           <span> at <%= message.created_at.strftime("%b %d, %I:%M%p") %>: </span>
           <span class="blue-grey-text darken-3"><%= message.body %></span>
       </div>

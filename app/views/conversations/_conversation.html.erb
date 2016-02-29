@@ -1,6 +1,13 @@
 <div class="col s12 mail-sub">
   <div class="col s9">
-      <span>Message from <span class="red-text"><%= conversation.originator.username %></span></span>
+      <div class="chip">
+      	<% if conversation.originator.image.url %>
+	      	<img src="<%= conversation.originator.image.url %>">
+	    <% else %>
+	    	<img src="http://cdn4.sportngin.com/attachments/text_block/1798/9513/soccer-ball_small.jpg">
+	    <% end %>
+		<%= conversation.originator.username %>
+      </div>
       <span> at <%= conversation.messages.last.created_at.strftime("%b %d, %I:%M%p") %></span>
   </div>
 
