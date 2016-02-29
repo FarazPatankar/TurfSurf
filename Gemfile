@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'twitter', '~> 5.16'
+
 gem 'will_paginate', '~> 3.0.7'
 
 gem 'pusher'

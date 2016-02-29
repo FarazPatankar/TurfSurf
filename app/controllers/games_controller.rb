@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
 	def index
-		@games = Game.where("start_time > ?", DateTime.now + 1.hour).paginate(page: params[:page], per_page: 3)
+		@games = Game.where("start_time > ?", DateTime.now + 1.hour).paginate(page: params[:page], per_page: 6)
 	end
 	def create
 		@arena = Arena.find_by(id: params[:arena_id])
@@ -9,7 +9,7 @@ class GamesController < ApplicationController
 
 		@game.user = current_user
 		if @game.save
-
+			@game.tweet(@game.user.username, @game.arena.name, @game.id)
 			redirect_to arena_game_path(@arena, @game)
 		else
 			redirect_to arena_path(@arena)
