@@ -31,8 +31,10 @@ class GamesController < ApplicationController
 
 			@invites.each do |invite|
 				if invite.response == 1
-					if invite.email == current_user.email
-						@is_current_accepted = true
+					if user_signed_in?
+						if invite.email == current_user.email
+							@is_current_accepted = true
+						end
 					end
 
 					@accepted.push(invite)

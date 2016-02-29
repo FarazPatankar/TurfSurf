@@ -46,7 +46,7 @@ class InvitesController < ApplicationController
 			ConfirmationMailer.confirmation_email(@invite).deliver_now
 			ResponseMailer.response_email(@invite).deliver_now
 		end
-		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: @invite.name})
+		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: @invite})
 
 		redirect_to game_path(game)
 	end

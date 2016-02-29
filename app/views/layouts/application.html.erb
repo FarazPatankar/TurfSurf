@@ -19,7 +19,8 @@
     });
     var channel = pusher.subscribe('test_channel');
     channel.bind('my_event', function(data) {
-      $('.js-accepted').append(data.message);
+      $('.js-accepted').append(data.message.name);
+      $(`.js-pending-${data.message.id}`).remove();
     });
   </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
