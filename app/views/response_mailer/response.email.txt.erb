@@ -1,0 +1,7 @@
+Hello <%= @invite.user.username %>
+
+<% if @invite.response == 1 %>
+	Your friend <%= @invite.name %> has accepted your invite to the game of soccer at <%= @invite.game.arena.name %>.
+<% else %>
+	Your friend <%= @invite.name %> has rejected your invite to the game of soccer at <%= @invite.game.arena.name %>.
+<% end %>

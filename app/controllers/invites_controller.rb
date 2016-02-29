@@ -44,6 +44,7 @@ class InvitesController < ApplicationController
 			@invite.response = 1
 			@invite.save
 			ConfirmationMailer.confirmation_email(@invite).deliver_now
+			ResponseMailer.response_email(@invite).deliver_now
 		end
 		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: @invite.name})
 
@@ -51,11 +52,12 @@ class InvitesController < ApplicationController
 	end
 
 	def reject
-		invite = Invite.find_by(id: params[:id])
-		game = invite.game
-		if invite.response == 0
-			invite.response = 2
-			invite.save
+		@invite = Invite.find_by(id: params[:id])
+		game = @invite.game
+		if @invite.response == 0
+			@invite.response = 2
+			@invite.save
+			ResponseMailer.response_email(@invite).deliver_now
 		end
 
 		render :text => "Okay :("
