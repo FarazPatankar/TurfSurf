@@ -1,108 +1,133 @@
 <%= render "devise/shared/nav" %>
-<div class="row">
-	<!-- Left card -->
-	<div class="col s4">
-		<div class="user-profile">
-			<div class="card">
-			  	<div class="card-header">
-			  		<% if @user.image.url %>
-				    	<img src="<%= @user.image.url %>"/>
-			    	<% else %>
-				    	<img src="https://s-media-cache-ak0.pinimg.com/originals/3b/f0/77/3bf0775b0d234545d14a5941be966ab2.jpg"/>
-			    	<% end %>
-			  	</div>
 
-			  	<% if @user.id == current_user.id %>
-				  	<div class="center-align" style="padding-top: 10px;">
-						<%= link_to "Edit Profile", edit_user_registration_path, :class => "waves-effect waves-light btn" %>
-				  	</div>
+<div class="container">
+	<div class="row" style="margin-top: 25px;">
+		<div class="col s4">
+			<div class="center-align pro-pic">
+				<% if @user.image.url %>
+					<img class="pro-pic responsive-img circle" src="<%= @user.image.url %>">
 				<% else %>
-					<div class="center-align" style="padding-top: 10px">
-						<%= link_to "Message User", new_conversation_path, :class => "waves-effect waves-light btn" %>
-					</div>
-			  	<% end %>
+					<img class="pro-pic responsive-img circle" src="https://s-media-cache-ak0.pinimg.com/originals/3b/f0/77/3bf0775b0d234545d14a5941be966ab2.jpg"/>
+				<% end %>
+			</div>
+		</div>
 
-			  	<div class="card-content">
-			    	<h3><%= @user.username %></h3>
+		<div class="col s8">
+			<div class="info-div">
+				<span class="username-div"><%= @user.username %></span>
 
-			    	<% if @user.first_name && @user.last_name %>
-				    	<h4><%= @user.first_name %> <%= @user.last_name %></h4>
-					<% else %>
-						<h4>Fake Name</h4>
-					<% end %>
+				<% if @user.id == current_user.id %>
+					<%= link_to "Edit Profile", edit_user_registration_path, :class => "waves-effect waves-light btn profile-btn" %>
+				<% else %>
+					<%= link_to "Message User", new_conversation_path, :class => "waves-effect waves-light btn profile-btn" %>
+				<% end %>
+			</div>
 
-					<% if @user.bio %>
-				    	<p><% @user.bio %></p>
-					<% else %>
-						<p>This is your fake bio. This will stay here till you give me your real information so that I know you're really real.</p>
-					<% end %>
-			  	</div>
-
-			  	<div class="card-footer user-footer">
-			  		<h4>Email: <%= @user.email %></h4>
-
-			  		<% if @user.number %>
-				  		<h4>Number: <% @user.number %></h4>
-					<% else %>
-						<h4>Number: (123) 456-7890</h4>
-					<% end %>
-			  	</div>
+			<div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Middle card -->
-	<div class="col s4">
-		<div class="user-profile">
-			<div class="card">
-			  	<div class="card-header">
-			  		<h5 class="center-align">PAST GAMES:</h5>
-			  	</div>
-
-			  	<div class="card-content games-card">
-			  		<ul>
-				  		<% @user.games.each do |game| %>
-				  			<% if game.start_time < Time.now %>
-						  		<li><%= game.arena.name %> on <%= (game.start_time).strftime("%d/%m/%y") %></li>
-						  	<% end %>
-					  	<% end %>
-					</ul>
-			  	</div>
-
-			  	<div class="card-footer user-footer">
-			  		<h4 class="red-text">Member since: <%= (@user.created_at).strftime("%d/%m/%y") %></h4>
-			  	</div>
+	<div class="row" style="background: #fff">
+		<section id="player-games">
+			<div class="col s12 m6 offset-m3">
+				<ul class="tabs" style="width: 100%;">
+					<li class="tab col s6" style="width: 50%;">
+						<a href="#past-games" class="active js-past green-text text-darken-2">Past Games</a>
+					</li>
+					<li class="tab col s6" style="width:50%;">
+						<a href="#upcoming-games" class="js-upcoming green-text text-darken-2">Upcoming Games</a>
+					</li>
+					<div class="indicator" style="right: 299px; left: 0px;"></div>
+					<div class="indicator" style="right: 299px; left: 0px;"></div>
+				</ul>
 			</div>
-		</div>
-	</div>
 
-	<!-- Right card -->
-	<div class="col s4">
-		<div class="user-profile">
-			<div class="card">
-			  	<div class="card-header">
-			  		<h5 class="center-align">UPCOMING GAMES:</h5>
-			  	</div>
+			<div class="col s12" id="past-games">
+				<div>
+			        <ul class="center-align">
+			          <% @past_games.each do |game| %>
+				          	<li class="col s4">
+				            	<div class="card arena-card">
+				              		<div class="card-image waves-effect waves-block waves-light">
+				                		<img class="activator card-img" src="<%= game.arena.image.url if game.arena.image %>">
+				              		</div>
 
-			  	<div class="card-content games-card">
-			  		<ul>
-				  		<% @user.games.each do |game| %>
-				  			<% if game.start_time > Time.now %>
-						  		<li>
-						  			<a href="/games/<%= game.id %>">
-								  		<%= game.arena.name %> on <%= (game.start_time).strftime("%d/%m/%y") %>
-								  	</a>
-						  		</li>
-						  	<% end %>
-					  	<% end %>
-					</ul>
-			  	</div>
+					              	<div class="card-content">
+				                		<div class="card-title activator grey-text text-darken-4">
+				                  			<h6 class="center-align" style="font-weight: 700;"><%= game.arena.name %></h6>
+				                  			<h6 class="center-align">
+				                    			Organizer:
+				                    			<a href="/users/<%= game.user.id %>">
+				                      				<%= game.user.username %>
+				                    			</a>
+				                  			</h6>
+				                  			<h6 class="center-align"><%= (game.start_time).strftime("%A %b %d at %I:%M %p") %> to <%= (game.end_time).strftime("%I:%M %p") %></h6>
+				           	  			</div>
 
-			  	<div class="card-footer user-footer">
-			  		<h4 class="red-text">Last sign in: <%= (@user.last_sign_in_at).strftime("%d/%m/%y") %></h4>
-			  	</div>
+				              			<div class="card-reveal">
+				                			<div class="card-title grey-text text-darken-4">
+				                  				<h5 class="center-align"><%= game.arena.name %><i class="material-icons right red-text">close</i></h5>
+				                			</div>
+				                			<a href="<%= game.arena.website %>">Website</a>
+				                			<hr>
+				                			<p>Address: <%= game.arena.address %></p>
+							                <p>Contact Number: <%= game.arena.number %></p>
+							                <p>Size: <%= game.arena.size %></p>
+							                <p>Price per hour: <%= game.arena.price %></p>
+				              			</div>
+				            		</div>
+				            	</div>
+				          	</li>
+			          <% end %>
+			        </ul>
+      			</div>
 			</div>
-		</div>
-	</div>
 
+			<div class="col s12" id="upcoming-games">
+				<div>
+			        <ul class="center-align">
+			          	<% @upcoming_games.each do |game| %>
+					          	<li class="col s4" style="list-style-type: none;">
+					            	<div class="card arena-card">
+					              		<div class="card-image waves-effect waves-block waves-light">
+					                		<img class="activator card-img" src="<%= game.arena.image.url if game.arena.image %>">
+					              		</div>
+
+						              	<div class="card-content">
+					                		<div class="card-title activator grey-text text-darken-4">
+					                  			<h6 class="center-align" style="font-weight: 700;">
+					                  				<a href="/games/<%= game.id %>">
+					                  					<%= game.arena.name %>
+					                  				</a>
+					                  			</h6>
+					                  			<h6 class="center-align">
+					                    			Organizer:
+					                    			<a href="/users/<%= game.user.id %>">
+					                      				<%= game.user.username %>
+					                    			</a>
+					                  			</h6>
+					                  			<h6 class="center-align"><%= (game.start_time).strftime("%A %b %d at %I:%M %p") %> to <%= (game.end_time).strftime("%I:%M %p") %></h6>
+					           	  			</div>
+
+					              			<div class="card-reveal">
+					                			<div class="card-title grey-text text-darken-4">
+					                  				<h5 class="center-align"><%= game.arena.name %><i class="material-icons right red-text">close</i></h5>
+					                			</div>
+					                			<a href="<%= game.arena.website %>">Website</a>
+					                			<hr>
+					                			<p>Address: <%= game.arena.address %></p>
+								                <p>Contact Number: <%= game.arena.number %></p>
+								                <p>Size: <%= game.arena.size %></p>
+								                <p>Price per hour: <%= game.arena.price %></p>
+					              			</div>
+					            		</div>
+					            	</div>
+					          	</li>
+			        	<% end %>
+			        </ul>
+      			</div>
+			</div>
+		</section>
+	</div>
 </div>

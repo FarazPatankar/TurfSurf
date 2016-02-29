@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #how-it-works {
-	background-color: #ededed;
+	background-color: #fff;
 	color: #5c5c5c;
 	padding: 20px 0;
 	margin-bottom: -20px;
@@ -68,14 +68,13 @@
 }
 
 .intro-text {
-	padding-top: 200px;
+	padding-top: 50px;
 	padding-bottom: 150px;
 	text-align: center;
 	color: #fff;
 }
 
 .intro-title {
-	font-family: "Droid Serif", "Helvetica Neue", Helvetica;
 	font-style: italic;
 	font-size: 40px;
 	line-height: 40px;
@@ -83,16 +82,14 @@
 }
 
 .coming-soon {
-	font-family: "Monserrat", "Helvetica Neue", Helvetica;
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 75px;
 	line-height: 75px;
-	margin-bottom: 50px;
+	margin-bottom: 75px;
 }
 
 .info-btn {
-	font-family: "Monserrat", "Helvetica Neue", Helvetica;
 	text-transform: uppercase;
 	font-weight: 700;
 	border-radius: 3px;
@@ -101,12 +98,11 @@
 }
 
 .nav-wrapper li a {
-	font-family: "Monserrat", "Helvetica Neue", Helvetica;
 	text-transform: uppercase;
 	font-weight: 600;
 }
 
-.brand-logo {
-	font-family: "Monserrat", "Helvetica Neue", Helvetica;
-	font-weight: 600;
+
+.logo-image {
+	height: 60px;
 }

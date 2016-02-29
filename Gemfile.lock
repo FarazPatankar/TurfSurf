@@ -196,6 +196,9 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     simple_oauth (0.3.1)
+    social-share-button (0.1.10)
+      coffee-rails
+      sass-rails
     spring (1.6.3)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -258,6 +261,7 @@ DEPENDENCIES
   rails (= 4.2.5.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  social-share-button
   spring
   twilio-ruby
   twitter (~> 5.16)

@@ -12,7 +12,6 @@
 			</h6>
 		</div>
 	</div>
-
 	<%if current_user && !@is_current_accepted %>
 		<% if current_user != @game.user %>
 			<div class="center-align">
@@ -27,17 +26,28 @@
 			<button class="waves-effect waves-light btn"><a class="white-text" href="/users/sign_in">LOG IN TO JOIN THIS GAME</a></button>
 		</div>
 	<% end %>
+	<%if user_signed_in?%>
+		<%if (@is_current_accepted) || (current_user.id == @game.user.id)%>
+			<div class="center-align">
+				<%= social_share_button_tag("I am playing a game of soccer at #{@game.arena.name}. Details: ",:url => "http://localhost:3000/games/#{@game.id}") %>
+			</div>
+		<% end %>
+	<%end%>
 	<br>
 
 	<div class="row">
 		<div class="col s12 game-accepted" style="padding-top: 10px; padding-bottom: 10px;">
 			<h6 class="center-align">ACCEPTED</h6>
 			<ul class="js-accepted">
-				<% @accepted.each do |invite| %>
-					<li>
-						<%= invite.name %>
-					</li>
-				<% end %>
+				<%if @accepted.empty?%>
+					<li>No one has accepted an invitation yet.</li>
+				<%else%>
+					<% @accepted.each do |invite| %>
+						<li>
+							<%= invite.name %>
+						</li>
+					<% end %>
+				<%end%>
 			</ul>
 		</div>
 	</div>
@@ -47,22 +57,30 @@
 			<div class="col s5 game-pending left" style="padding-top: 10px; padding-bottom: 10px;">
 				<h6 class="center-align">PENDING</h6>
 				<ul>
+				<%if @yet.empty?%>
+					<li>No pending invitations.</li>
+				<%else%>
 					<% @yet.each do |invite| %>
 						<li class="js-pending-<%=invite.id%>">
 							<%= invite.name %>
 						</li>
 					<% end %>
+				<%end%>
 				</ul>
 			</div>
 
 			<div class="col s5 game-rejected right" style="padding-top: 10px; padding-bottom: 10px;">
 				<h6 class="center-align">REJECTED</h6>
 				<ul>
+				<%if @rejected.empty?%>
+					<li>No one has rejected an invitation yet.</li>
+				<%else%>
 					<% @rejected.each do |invite| %>
 						<li>
 							<%= invite.name %>
 						</li>
 					<% end %>
+				<%end%>
 				</ul>
 			</div>
 		</div>

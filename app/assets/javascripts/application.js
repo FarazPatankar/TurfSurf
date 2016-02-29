@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require chosen-jquery
 //= require materialize-sprockets
+//= require social-share-button
 //= require_tree .

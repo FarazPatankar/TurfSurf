@@ -17,13 +17,14 @@
 
               <div class="card-content">
                 <div class="card-title activator grey-text text-darken-4">
-                  <h5 class="center-align"><%= game.arena.name %></h5>
-                  <h6 class="center-align" style="text-transform: uppercase">
-                    Created by:
+                  <h6 class="center-align" style="font-weight: 700;"><%= game.arena.name %></h6>
+                  <h6 class="center-align">
+                    Organizer:
                     <a href="/users/<%= game.user.id %>">
                       <%= game.user.username %>
                     </a>
                   </h6>
+                  <h6 class="center-align"><%= (game.start_time).strftime("%A %b %d at %I:%M %p") %> to <%= (game.end_time).strftime("%I:%M %p") %></h6>
                 </div>
 
                 <div class="center-align"><a class="card-btn waves-effect waves-light btn" href="/games/<%= game.id %>">View This Game</a></div>

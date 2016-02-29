@@ -1,4 +1,5 @@
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800italic,700);
 @import "materialize";
 @import 'static_pages';
 @import 'arenas';
@@ -8,14 +9,15 @@
 @import 'games';
 @import 'animate';
 @import 'chosen';
+@import 'social-share-button';
 
  body {
- 	font-family: Monserrat, "Helvetica Neue", Helvetica;
+ 	font-family: 'Open Sans', sans-serif;
 	background: #fafafa;
 }
 
  .header {
-	background: url(//wallpapercave.com/wp/dN69yCy.jpg) no-repeat center center;
+	background: url("http://www.soccertown.com/wp-content/uploads/2015/04/main-slider.jpg") no-repeat center center;
 	background-size: cover;
 }
 
@@ -31,4 +33,12 @@
 
  i.tiny {
  	font-size: 1.3rem;
+ }
+
+ .btn {
+    background-color: #388e3c !important;
+ }
+
+ .indicator {
+    background-color: #388e3c !important;
  }
