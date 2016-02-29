@@ -38,13 +38,14 @@ class InvitesController < ApplicationController
 	end
 
 	def accept
-		invite = Invite.find_by(id: params[:id])
-		game = invite.game
-		if invite.response == 0
-			invite.response = 1
-			invite.save
+		@invite = Invite.find_by(id: params[:id])
+		game = @invite.game
+		if @invite.response == 0
+			@invite.response = 1
+			@invite.save
+			ConfirmationMailer.confirmation_email(@invite).deliver_now
 		end
-		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: invite.name})
+		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: @invite.name})
 
 		redirect_to game_path(game)
 	end

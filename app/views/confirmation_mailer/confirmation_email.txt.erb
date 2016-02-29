@@ -1,0 +1,11 @@
+Hello <%= @invite.name %>
+
+This is your confirmation email for the game at <%= @invite.game.arena.name %>.
+
+The details of the game are as follows:
+
+
+Arena: <%= @invite.game.arena.name %>
+Address: <%= @invite.game.arena.address %>
+Kick off at: <%= @invite.game.start_time %>
+Full time at: <%= @invite.game.end_time %>

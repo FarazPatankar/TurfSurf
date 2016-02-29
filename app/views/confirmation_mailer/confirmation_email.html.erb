@@ -1,0 +1,12 @@
+<h1>Hello <%= @invite.name %></h1>
+
+<p>This is your confirmation email for the game at <%= @invite.game.arena.name %>.</p>
+
+<p>The details of the game are as follows:</p>
+
+<ul>
+	<li>Arena: <%= @invite.game.arena.name %></li>
+	<li>Address: <%= @invite.game.arena.address %></li>
+	<li>Kick off at: <%= @invite.game.start_time %></li>
+	<li>Full time at: <%= @invite.game.end_time %></li>
+</ul>
