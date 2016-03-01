@@ -43,10 +43,16 @@
       <div class="col s2">
         <h5 class="white-text">Sitemap</h5>
         <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Create Game</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Join Game</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Sign Up</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Log In</a></li>
+          <li><a class="grey-text text-lighten-3" href="/arenas">Create Game</a></li>
+          <li><a class="grey-text text-lighten-3" href="/games">Join Game</a></li>
+          <% if user_signed_in? %>
+          <li><a class="grey-text text-lighten-3" href="/mailbox/inbox">Inbox</a></li>
+          <li><a class="grey-text text-lighten-3" href="/users/<%= current_user.id %>">Profile</a></li>
+          <li><a class="grey-text text-lighten-3" href="/users/sign_out" data-method="delete">Log Out</a></li>
+          <% else %>
+          <li><a class="grey-text text-lighten-3" href="/users/sign_up">Sign Up</a></li>
+          <li><a class="grey-text text-lighten-3" href="/users/sign_in">Log In</a></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -65,7 +71,7 @@
 			</div>
 
 			<div class="col s4 right-align">
-				Made at Ironhack Miami by Faraz
+				Made at Ironhack Miami
 			</div>
 		</div>
 	</div>
