@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
+
 gem 'jquery-timepicker-rails'
 
 gem 'underscore-rails'
