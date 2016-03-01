@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'jquery-timepicker-rails'
+
 gem 'underscore-rails'
 
 gem 'gmaps4rails'

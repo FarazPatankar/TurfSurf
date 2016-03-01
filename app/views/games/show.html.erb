@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col s12">
 			<h4 class="center-align" style="text-transform: uppercase;">Invite your friends</h4>
-			<h5 class="center-align"><%= @game.start_time %> - <%= @game.end_time %></h5>
+			<h5 class="center-align"><%= (@game.start_time).strftime("%A %b %d from %I:%M %p") %> - <%= (@game.end_time).strftime("%I:%M %p") %></h5>
 		</div>
 	</div>
 

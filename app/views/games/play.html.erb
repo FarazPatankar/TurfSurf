@@ -40,7 +40,7 @@
 			<h6 class="center-align">ACCEPTED</h6>
 			<ul class="js-accepted">
 				<%if @accepted.empty?%>
-					<li>No one has accepted an invitation yet.</li>
+					<p class="js-no-accepted">No one has accepted an invitation yet.</p>
 				<%else%>
 					<% @accepted.each do |invite| %>
 						<li>
@@ -56,9 +56,9 @@
 		<div class="col s8 offset-s2">
 			<div class="col s5 game-pending left" style="padding-top: 10px; padding-bottom: 10px;">
 				<h6 class="center-align">PENDING</h6>
-				<ul>
+				<ul class="js-pending-list">
 				<%if @yet.empty?%>
-					<li>No pending invitations.</li>
+					<li class="js-no-pending">No pending invitations.</li>
 				<%else%>
 					<% @yet.each do |invite| %>
 						<li class="js-pending-<%=invite.id%>">
@@ -71,9 +71,9 @@
 
 			<div class="col s5 game-rejected right" style="padding-top: 10px; padding-bottom: 10px;">
 				<h6 class="center-align">REJECTED</h6>
-				<ul>
+				<ul class="js-rejected">
 				<%if @rejected.empty?%>
-					<li>No one has rejected an invitation yet.</li>
+					<li class="js-no-rejected">No one has rejected an invitation yet.</li>
 				<%else%>
 					<% @rejected.each do |invite| %>
 						<li>

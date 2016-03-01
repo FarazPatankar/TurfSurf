@@ -24,6 +24,17 @@
     channel.bind('my_event', function(data) {
       $('.js-accepted').append(data.message.name);
       $(`.js-pending-${data.message.id}`).remove();
+
+      if ($('.js-pending-list').length == 0) {
+        var html = `
+          <li>No pending invitations.</li>
+        `;
+        $('.js-pending-list').append(html);
+      }
+
+      if ($('.js-accepted').length > 0) {
+        $('.js-no-accepted').remove();
+      }
     });
   </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

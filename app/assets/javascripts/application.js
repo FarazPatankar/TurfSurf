@@ -18,4 +18,5 @@
 //= require social-share-button
 //= require underscore
 //= require gmaps/google
+//= require jquery.timepicker.js
 //= require_tree .
