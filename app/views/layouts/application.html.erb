@@ -11,11 +11,11 @@
   <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
   <script>
     // Enable pusher logging - don't include this in production
-    Pusher.log = function(message) {
-      if (window.console && window.console.log) {
-        window.console.log(message);
-      }
-    };
+    // Pusher.log = function(message) {
+    //   if (window.console && window.console.log) {
+    //     window.console.log(message);
+    //   }
+    // };
 
     var pusher = new Pusher('6fc3679ef9bf33c75bf8', {
       encrypted: true
