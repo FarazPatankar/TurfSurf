@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#Container .mix{
+    display: none;
+}
+
+.filter-btn {
+	background: #42a5f5 !important;
+}
+
 .game-show-page {
 	color: lighten(#000, 40%);
 	padding: 25px;

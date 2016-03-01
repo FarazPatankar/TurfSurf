@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'mixitup_rails'
+
 gem 'social-share-button'
 
 gem 'twitter', '~> 5.16'

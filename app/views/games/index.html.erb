@@ -5,11 +5,35 @@
     <div class="col s12">
 
       <h4 class="center-align">Pick A Game</h4>
+      <div class="center-align" style="margin-bottom: 20px;">
+        <div class="waves-effect waves-light btn js-filter-arena filter" data-filter="all">Filter By Arena</div>
+        <div class="waves-effect waves-light btn js-show-all filter" data-filter="all">Show All</div>
+        <div class="waves-effect waves-light btn js-filter-day filter" data-filter="all">Filter By Day</div>
+      </div>
 
-      <div>
+      <div class="center-align js-arena" style="display: none;">
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-1" style="width: 275px; margin-bottom: 5px;">Miami Downtown Soccer</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-2" style="width: 275px; margin-bottom: 5px;">Midtown Indoor Soccer</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-3" style="width: 275px; margin-bottom: 5px;">Brickell Soccer Rooftop</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-4" style="width: 275px; margin-bottom: 5px;">Wynwood Indoor Soccer</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-5" style="width: 275px; margin-bottom: 5px;">La Caimanera Soccer</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-6" style="width: 275px; margin-bottom: 5px;">Soccer Town Miami</div>
+      </div>
+
+      <div class="center-align js-day" style="display: none">
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Sunday" style="width: 150px; margin-bottom: 5px;">Sunday</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Monday" style="width: 150px; margin-bottom: 5px;">Monday</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Tuesday" style="width: 150px; margin-bottom: 5px;">Tuesday</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Wednesday" style="width: 150px; margin-bottom: 5px;">Wednesday</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Thursday" style="width: 150px; margin-bottom: 5px;">Thursday</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Friday" style="width: 150px; margin-bottom: 5px;">Friday</div>
+        <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Saturday" style="width: 150px; margin-bottom: 5px;">Saturday</div>
+      </div>
+
+      <div id="Container">
         <ul class="center-align">
           <% @games.each do |game| %>
-          <li class="col s4">
+          <li class="col s4 mix category-<%=game.arena.id%> category-<%=(game.start_time).strftime("%A")%>" data-myorder="<%=game.id%>">
             <div class="card arena-card">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator card-img" src="<%= game.arena.image.url if game.arena.image %>">
@@ -49,9 +73,4 @@
 
     </div>
   </div>
-
-  <div class="center-align flickr_pagination">
-    <%= will_paginate @games %>
-  </div>
-
 </div>
