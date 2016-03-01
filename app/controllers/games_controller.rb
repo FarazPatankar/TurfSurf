@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-
 	def index
 		@games = Game.where("start_time > ?", DateTime.now + 1.hour)
 	end
