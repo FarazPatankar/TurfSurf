@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<% if request.url.split('/').last != "accept" %>
+	<% if request.referrer.split('/').last != "accept" %>
 		<%if current_user && !@is_current_accepted %>
 			<% if current_user != @game.user %>
 				<div class="center-align">
