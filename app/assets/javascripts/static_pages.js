@@ -11,7 +11,3 @@
 // 		$("#if-you-join").hide();
 // 	})
 // })
-
-$(document).on("ready", function(){
-	$(".button-collapse").sideNav();
-})

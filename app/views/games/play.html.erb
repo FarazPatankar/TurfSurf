@@ -1,5 +1,11 @@
 <%= render "devise/shared/nav" %>
 
+<% content_for :body_class do %>
+	load-map
+<%end%>
+
+<%=request.referrer%>
+
 <% if flash[:invitesuccess] %>
 	<div class="center-align">
 		<h6><%= flash[:invitesuccess] %></h6>

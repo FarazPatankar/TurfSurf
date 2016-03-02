@@ -2,7 +2,8 @@
   <nav style="background: #42a5f5;">
       <div class="nav-wrapper">
         <a href="/"><img class="logo-image" src="/assets/logo.png"></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons right">menu</i></a>
+        <ul class="right hide-on-med-and-down">
           <li><a href="/arenas">Create Game</a></li>
           <li><a href="/games">Join Game</a></li>
           <% if user_signed_in? %>
@@ -12,6 +13,18 @@
           <% else %>
             <li><a href="/users/sign_up">Sign Up</a></li>
             <li><a href="/users/sign_in">Log In</a></li>
+          <% end %>
+        </ul>
+        <ul class="side-nav" id="nav-mobile">
+            <li><a href="/arenas">Create Game</a></li>
+            <li><a href="/games">Join Game</a></li>
+            <% if user_signed_in? %>
+              <li><a href="/mailbox/inbox">Inbox</a></li>
+              <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+              <li><a href="/users/sign_out" data-method="delete">Log Out</a></li>
+            <% else %>
+              <li><a href="/users/sign_up">Sign Up</a></li>
+              <li><a href="/users/sign_in">Log In</a></li>
           <% end %>
         </ul>
       </div>
