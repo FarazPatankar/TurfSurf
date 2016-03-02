@@ -4,8 +4,6 @@
 	load-map
 <%end%>
 
-<%=request.referrer%>
-
 <% if flash[:invitesuccess] %>
 	<div class="center-align">
 		<h6><%= flash[:invitesuccess] %></h6>
@@ -28,20 +26,25 @@
 			</h6>
 		</div>
 	</div>
-	<%if current_user && !@is_current_accepted %>
-		<% if current_user != @game.user %>
+
+	<% if request.url.split('/').last != "accept" %>
+		<%if current_user && !@is_current_accepted %>
+			<% if current_user != @game.user %>
+				<div class="center-align">
+					<button class="waves-effect waves-light btn">
+						<a class="white-text" href="/games/<%= @game.id %>/requests/<%= current_user.id %>">Join This Game</a>
+					</button>
+				</div>
+			<% end %>
+			<br>
+		<%elsif !user_signed_in? %>
 			<div class="center-align">
-				<button class="waves-effect waves-light btn">
-					<a class="white-text" href="/games/<%= @game.id %>/requests/<%= current_user.id %>">Join This Game</a>
-				</button>
+				<button class="waves-effect waves-light btn"><a class="white-text" href="/users/sign_in">LOG IN TO JOIN THIS GAME</a></button>
 			</div>
 		<% end %>
-		<br>
-	<%elsif !user_signed_in? %>
-		<div class="center-align">
-			<button class="waves-effect waves-light btn"><a class="white-text" href="/users/sign_in">LOG IN TO JOIN THIS GAME</a></button>
-		</div>
 	<% end %>
+
+
 	<%if user_signed_in?%>
 		<%if (@is_current_accepted) || (current_user.id == @game.user.id)%>
 			<div class="center-align">
