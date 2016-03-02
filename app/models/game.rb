@@ -14,7 +14,7 @@ class Game < ActiveRecord::Base
 	  config.access_token_secret = ENV['twitter_access_token_secret']
 	end
 
-  url = ENV[:SITE_URL]
+  url = ENV["SITE_URL"]
 	client.update("#{user} just created a game at #{arena}. Details: http://#{url}/games/#{game_id}")
   end
 end

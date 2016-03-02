@@ -9,11 +9,12 @@ class InvitesController < ApplicationController
 		attributes.each do |attribute|
 				@invite = @game.invites.new(name: attribute[:name], email: attribute[:email])
 				@invite.user = @user
+				url = ENV["SITE_URL"]
 				if @invite.save
 					InviteMailer.invite_email(@invite).deliver_now
 					if attribute[:number].length > 0
 					@invite.send_text_message(attribute[:number],
-						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you. Details: http://<%= ENV[:SITE_URL] %>/invites/#{@invite.id}")
+						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you. Details: http://#{url}/invites/#{@invite.id}")
 					end
 				end
 		end
