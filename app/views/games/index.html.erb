@@ -36,6 +36,12 @@
         <div class="waves-effect waves-light btn filter-btn filter" data-filter=".category-Saturday" style="width: 150px; margin-bottom: 5px;">Saturday</div>
       </div>
 
+      <div class="js-no-games center-align" style="display: none;">
+        <br>
+        <h5>There are no games available. Maybe you could create one.</h5>
+        <a class="waves-effect waves-light btn" href="/arenas">Create Game</a>
+      </div>
+
       <div id="Container">
         <ul class="center-align">
           <% @games.each do |game| %>

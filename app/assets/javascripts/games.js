@@ -5,8 +5,11 @@ $(document).on("ready", function(){
 	// mixItUp
 	$('#Container').mixItUp({
 	callbacks: {
+		onMixEnd: function(state){
+			$('.js-no-games').hide();
+		},
 		onMixFail: function(state){
-			alert('No elements found matching '+state.activeFilter);
+			$('.js-no-games').show();
 			}
 		}
 	});
