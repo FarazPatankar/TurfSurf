@@ -22,7 +22,7 @@ class InvitesController < ApplicationController
 		redirect_to game_path(@game)
 	end
 
-	def invite
+	def send_invite
 		@game = Game.find_by(id: params[:game_id])
 		@user = User.find_by(id: params[:id])
 		sender_id = @game.user_id
@@ -33,6 +33,19 @@ class InvitesController < ApplicationController
 		if @invite.save
 			InviteMailer.invite_email(@invite).deliver_now
 		end
+
+		redirect_to game_path(@game)
+
+	end
+
+	def reject_invite
+		@game = Game.find_by(id: params[:game_id])
+		@user = User.find_by(id: params[:id])
+		sender_id = @game.user_id
+		@sender = User.find_by(id: sender_id)
+		@invite = @game.invites.new(name: @user.username, email: @user.email)
+		@invite.user = @sender
+		RejectMailer.reject_email(@invite).deliver_now
 
 		redirect_to game_path(@game)
 
