@@ -64,7 +64,7 @@ class InvitesController < ApplicationController
 			ResponseMailer.response_email(@invite).deliver_now
 		end
 		$PUSHER_CLIENT.trigger('test_channel', 'my_event', {message: @invite})
-
+		session[:invited_user] = true
 		redirect_to game_path(game)
 	end
 

@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<% if request.referrer.split('/').last != "accept" %>
+	<% unless session[:invited_user] %>
 		<%if current_user && !@is_current_accepted %>
 			<% if current_user != @game.user %>
 				<div class="center-align">
