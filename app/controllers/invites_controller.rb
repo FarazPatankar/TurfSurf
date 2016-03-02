@@ -16,6 +16,9 @@ class InvitesController < ApplicationController
 					@invite.send_text_message(attribute[:number],
 						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you. Details: http://#{url}/invites/#{@invite.id}")
 					end
+					flash[:invitesuccess] = "Invitations have been successfully sent."
+				else
+					flash[:invitefail] = "There was a problem sending the invitations."
 				end
 		end
 

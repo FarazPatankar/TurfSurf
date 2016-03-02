@@ -11,6 +11,7 @@ class RequestsController < ApplicationController
 
 		if @request.save
 			RequestMailer.request_email(@request).deliver_now
+			flash[:requestsuccess] = "Your request was successfully sent."
 		end
 
 		redirect_to games_path

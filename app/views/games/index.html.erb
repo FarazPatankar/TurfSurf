@@ -1,5 +1,11 @@
 <%= render "devise/shared/nav" %>
 
+<% if flash[:requestsuccess] %>
+  <div class="center-align">
+    <%= flash[:requestsuccess] %>
+  </div>
+<%end%>
+
 <div class="container">
   <div class="row">
     <div class="col s12">

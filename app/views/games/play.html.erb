@@ -1,5 +1,15 @@
 <%= render "devise/shared/nav" %>
 
+<% if flash[:invitesuccess] %>
+	<div class="center-align">
+		<h6><%= flash[:invitesuccess] %></h6>
+	</div>
+<% elsif flash[:invitefail] %>
+	<div class="center-align">
+		<h6><%= flash[:invitefail] %></h6>
+	</div>
+<% end %>
+
 <div class="container game-show-page">
 	<div class="row">
 		<div class="col s12">
