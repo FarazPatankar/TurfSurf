@@ -20,3 +20,7 @@
 //= require gmaps/google
 //= require jquery.timepicker.js
 //= require_tree .
+
+$(document).on("ready", function(){
+	$(".button-collapse").sideNav();
+})
