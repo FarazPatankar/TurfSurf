@@ -13,7 +13,7 @@ class InvitesController < ApplicationController
 					InviteMailer.invite_email(@invite).deliver_now
 					if attribute[:number].length > 0
 					@invite.send_text_message(attribute[:number],
-						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you. Details: http://localhost:3000/invites/#{@invite.id}")
+						"Hey #{@invite.name}, your friend #{@invite.user.username} wants to play soccer with you. Details: http://<%= ENV[:SITE_URL] %>/invites/#{@invite.id}")
 					end
 				end
 		end
