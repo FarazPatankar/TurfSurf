@@ -80,6 +80,14 @@ class InvitesController < ApplicationController
 		render :text => "Okay :("
 	end
 
+	def cancel
+		@invite = Invite.find_by(id: params[:id])
+		game = @invite.game
+		@invite.response = 2
+		@invite.save
+		InviteMailer.cancel_email(@invite).deliver_now
+	end
+
 	def show
 		@invite = Invite.find_by(id: params[:id])
 	end

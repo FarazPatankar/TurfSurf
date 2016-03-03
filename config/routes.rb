@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get "games/:game_id/invites/:id/accept" => "invites#send_invite"
   get "games/:game_id/invites/:id/reject" => "invites#reject_invite"
 
+  get "/games/:id/cancel" => "invites#cancel"
+
   # resources(:arena, only: [:index])
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

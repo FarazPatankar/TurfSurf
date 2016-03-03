@@ -3,6 +3,11 @@ class InviteMailer < ApplicationMailer
 
   def invite_email(invite)
   	@invite = invite
-  	mail(to: @invite.email, subject: "Hello, #{@invite.name}.")
+  	mail(to: @invite.email, subject: "Hello, #{@invite.name}")
+  end
+
+  def cancel_email(invite)
+  	@invite = invite
+  	mail(to: @invite.email, subject: "Hello, #{@invite.name}")
   end
 end
