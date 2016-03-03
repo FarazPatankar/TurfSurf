@@ -9,7 +9,7 @@
 		        <li><a href="/games">Join Game</a></li>
 		        <% if user_signed_in? %>
 		        	<li><a href="/mailbox/inbox">Inbox</a></li>
-		        	<li><a href="/users/<%= current_user.id %>">Profile</a></li>
+		        	<li><a href="/users/<%= current_user.id %>"><%=current_user.username%></a></li>
 		        	<li><a href="/users/sign_out" data-method="delete">Log Out</a></li>
 		        <% else %>
 			        <li><a href="/users/sign_up">Sign Up</a></li>
