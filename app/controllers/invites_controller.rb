@@ -86,6 +86,8 @@ class InvitesController < ApplicationController
 		@invite.response = 2
 		@invite.save
 		InviteMailer.cancel_email(@invite).deliver_now
+
+		redirect_to game_path(game)
 	end
 
 	def show
