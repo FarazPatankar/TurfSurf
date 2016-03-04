@@ -11,5 +11,8 @@ $(document).on("ready", function() {
 	    selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
 
-	$('.timepicker').timepicker({ 'timeFormat': 'H:i' });
+	$('.timepicker').timepicker({
+		'timeFormat': 'H:i',
+		'scrollDefault': 'now'
+	});
 })
