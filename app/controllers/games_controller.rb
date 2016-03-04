@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 	def index
 		@games = Game.where("start_time > ?", DateTime.now + 1.hour)
+		session[:invited_user] = false
 	end
 	def create
 		@arena = Arena.find_by(id: params[:arena_id])
