@@ -27,7 +27,7 @@
       $('.js-accepted').append(data.message.name);
       $(`.js-pending-${data.message.id}`).remove();
 
-      if ($('.js-pending-list').length == 0) {
+      if ($('.js-pending-list').length == 1) {
         var html = `
           <li>No pending invitations.</li>
         `;
